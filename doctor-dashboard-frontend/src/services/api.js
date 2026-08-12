@@ -5,7 +5,7 @@ import axios from "axios";
 // ==============================
 
 const api = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL: "https://docter-dashboard-backend.onrender.com/api",
   headers: {
     "Content-Type": "application/json",
   },
@@ -20,7 +20,8 @@ const api = axios.create({
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("token");
-     console.log("Interceptor Token:", token);
+
+    console.log("Interceptor Token:", token);
 
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
